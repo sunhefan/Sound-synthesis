@@ -54,17 +54,45 @@ let osc;
 let waveFormSelect;
 let pNoise;
 let button;
+let mySound;
+let mySound2;
+let env;
+let wave;
+let playing =false;
 
 
 
 function preload(){
   soundFormats('mp3','ogg');
+  mySound=loadSound('assets/song2.mp3');
+  mySound2=loadSound('assets/song3.mp3');
 
-  // song = loadSound('assets/bell.mp3');
 }
 
 
 function setup(){
+
+
+  env =new p5.Env();
+   env.setADSR(0.08, 0.1, 0.8, 1);
+   env.setRange(1.2,0);
+
+wave = new p5.Oscillator();
+
+mySound.setVolume(0.8);
+mySound.play();
+
+
+
+wave.setType('triangle');
+  wave.start();
+  wave.freq(100);
+  wave.amp(env);
+
+  button =createButton('play');
+button.mousePressed(toggle);
+
+
 // createCanvas(windowWidth,windowHeight);
 createCanvas(600,600);
 osc= new p5.Oscillator();
@@ -85,19 +113,10 @@ waveFormSelect.changed(setWaveForm);
 
 
 
+function toggle(){
 
-//
-// function toggle(){
-//   env.play();
-//   if(!playing){
-//     wave.amp(0.8,1);
-//     playing =true;
-//   } else {
-//     wave.stop();
-//     wave.amp(0.8,1);
-//     playing=false;
-//   }
-// }
+  mySound2.play();
+}
 
 
 
@@ -121,4 +140,13 @@ function mousePressed(){
 
 function mouseReleased(){
   osc.stop();
+}
+
+function keyTyped() {
+  if (key === 'a') {
+
+  } else if (key === 'b') {
+    value = 0;
+  }
+
 }
