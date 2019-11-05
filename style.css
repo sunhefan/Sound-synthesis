@@ -1,0 +1,23 @@
+html{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+body {
+  margin: auto;
+width :50%;
+font-size: 28px;
+
+  font-family: 'Fascinate Inline', cursive;
+  color: white;
+
+  background-image: url("assets/background.jpg");
+    background-repeat:repeat;
+    background-size: cover;
+    height: 500px;
+}
+canvas {
+  display: block;
+}
