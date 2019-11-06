@@ -1,3 +1,4 @@
+'use strict';
 // let wave;
 // let button;
 // let slider;
@@ -53,16 +54,20 @@
 let osc;
 let waveFormSelect;
 let pNoise;
-let button;
+
+let button1;
 let button2;
 let button3;
 let button4;
 let button5;
-let mySound;
+
+
+let mySound1;
 let mySound2;
 let mySound3;
 let mySound4;
 let mySound5;
+
 let env;
 let wave;
 let playing =false;
@@ -71,9 +76,9 @@ let playing =false;
 
 function preload(){
   soundFormats('mp3','ogg');
-  mySound=loadSound('assets/song2.mp3');
-  mySound2=loadSound('assets/song3.mp3');
-  mySound3=loadSound('assets/song1.mp3');
+  mySound1=loadSound('assets/song1.mp3');
+  mySound2=loadSound('assets/song2.mp3');
+  mySound3=loadSound('assets/song3.mp3');
   mySound4=loadSound('assets/song4.mp3');
   mySound5=loadSound('assets/song5.mp3');
 }
@@ -88,8 +93,17 @@ function setup(){
 
 wave = new p5.Oscillator();
 
-mySound.setVolume(0.8);
-mySound.play();
+mySound1.setVolume(0.8);
+mySound1.play();
+
+mySound2.setVolume(0.8);
+mySound2.play();
+mySound3.setVolume(0.8);
+mySound3.play();
+mySound4.setVolume(0.8);
+mySound4.play();
+mySound5.setVolume(0.8);
+mySound5.play();
 
 
 
@@ -98,16 +112,20 @@ wave.setType('triangle');
   wave.freq(100);
   wave.amp(env);
 
-button =createButton('play');
-button.mousePressed(toggle);
+button1 =createButton('play');
+button1.mousePressed(toggle);
+
 button2 = createButton('play2');
-button.mousePressed(toggle2);
+button2.mousePressed(toggle2);
+
 button3 = createButton('play3');
-button.mousePressed(toggle3);
+button3.mousePressed(toggle3);
+
 button4 = createButton('play4');
-button.mousePressed(toggle4);
+button4.mousePressed(toggle4);
+
 button5 = createButton('play5');
-button.mousePressed(toggle5);
+button5.mousePressed(toggle5);
 
 // createCanvas(windowWidth,windowHeight);
 createCanvas(600,600);
@@ -128,20 +146,19 @@ waveFormSelect.changed(setWaveForm);
 }
 
 
-
 function toggle(){
 
-  mySound2.play();
+  mySound1.play();
 }
 
 function toggle2(){
 
-  mySound3.play();
+  mySound2.play();
 }
 
 function toggle3(){
 
-  mySound1.play();
+  mySound3.play();
 }
 
 function toggle4(){
