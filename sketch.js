@@ -54,8 +54,15 @@ let osc;
 let waveFormSelect;
 let pNoise;
 let button;
+let button2;
+let button3;
+let button4;
+let button5;
 let mySound;
 let mySound2;
+let mySound3;
+let mySound4;
+let mySound5;
 let env;
 let wave;
 let playing =false;
@@ -66,7 +73,9 @@ function preload(){
   soundFormats('mp3','ogg');
   mySound=loadSound('assets/song2.mp3');
   mySound2=loadSound('assets/song3.mp3');
-
+  mySound3=loadSound('assets/song1.mp3');
+  mySound4=loadSound('assets/song4.mp3');
+  mySound5=loadSound('assets/song5.mp3');
 }
 
 
@@ -89,9 +98,16 @@ wave.setType('triangle');
   wave.freq(100);
   wave.amp(env);
 
-  button =createButton('play');
+button =createButton('play');
 button.mousePressed(toggle);
-
+button2 = createButton('play2');
+button.mousePressed(toggle2);
+button3 = createButton('play3');
+button.mousePressed(toggle3);
+button4 = createButton('play4');
+button.mousePressed(toggle4);
+button5 = createButton('play5');
+button.mousePressed(toggle5);
 
 // createCanvas(windowWidth,windowHeight);
 createCanvas(600,600);
@@ -118,8 +134,25 @@ function toggle(){
   mySound2.play();
 }
 
+function toggle2(){
 
+  mySound3.play();
+}
 
+function toggle3(){
+
+  mySound1.play();
+}
+
+function toggle4(){
+
+  mySound4.play();
+}
+
+function toggle5(){
+
+  mySound5.play();
+}
 
 function setWaveForm(){
   osc.setType(waveFormSelect.value());
@@ -142,11 +175,11 @@ function mouseReleased(){
   osc.stop();
 }
 
-function keyTyped() {
-  if (key === 'a') {
-
-  } else if (key === 'b') {
-    value = 0;
-  }
-
-}
+// function keyTyped() {
+//   if (key === 'a') {
+//
+//   } else if (key === 'b') {
+//     value = 0;
+//   }
+//
+// }
