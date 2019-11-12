@@ -68,6 +68,12 @@ let mySound3;
 let mySound4;
 let mySound5;
 
+
+let bubble0;
+let bubble2;
+let drop;
+let extraScale = 0;
+
 let env;
 let wave;
 let playing =false;
@@ -75,12 +81,20 @@ let playing =false;
 
 
 function preload(){
+
+  drop=loadImage('assets/drop.png');
   soundFormats('mp3','ogg');
+
   mySound1=loadSound('assets/song1.mp3');
   mySound2=loadSound('assets/song2.mp3');
   mySound3=loadSound('assets/song3.mp3');
   mySound4=loadSound('assets/song4.mp3');
   mySound5=loadSound('assets/song5.mp3');
+
+
+  bubble0=loadSound('assets/bubble0.mp3');
+  bubble2=loadSound('assets/bubble2.mp3');
+
 }
 
 
@@ -177,6 +191,14 @@ function setWaveForm(){
 
 function draw (){
 
+  imageMode(CENTER);
+  translate(width/2, height/2);
+  scale(1 + extraScale);
+  image(kitty, 0, 0);
+  if (extraScale > 0) {
+    extraScale -= 0.05;
+  }
+
   pNoise = noise(frameCount / 20)*50;
   osc.freq(map(mouseX,0,width,60,1200) + pNoise);
 
@@ -186,17 +208,19 @@ function draw (){
 
 function mousePressed(){
     osc.start();
+
 }
 
 function mouseReleased(){
   osc.stop();
 }
 
-// function keyTyped() {
-//   if (key === 'a') {
-//
-//   } else if (key === 'b') {
-//     value = 0;
-//   }
-//
-// }
+function keyTyped() {
+  extraScale = 1;
+  if (key === 'a') {
+  bubble0.play();
+  } else if (key === 'b') {
+  bubble2.play();
+  }
+
+}
